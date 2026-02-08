@@ -1,0 +1,12 @@
+
+{
+  "MySQL" : {
+    "EnableIndex" : true,
+    "EnableStorage" : false,
+    "Host" : "localhost",
+    "Port" : 3306,
+    "Database" : "nexiadicom",
+    "Username" : "root",
+    "Password" : "nexia"
+  }
+}

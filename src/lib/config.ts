@@ -2,15 +2,18 @@
 // These can be overridden with environment variables
 
 export const config = {
-  // Orthanc API Base URL
-  orthancBaseUrl: import.meta.env.VITE_ORTHANC_BASE_URL || 'http://localhost:8042',
+  // API Base URL - Pointing to DICOMweb (Backend Proxy)
+  // In development: Use the Vite proxy '/pacs' which forwards to 'http://localhost:3000/api/dicom'
+  // In production: Set VITE_API_BASE_URL to the absolute URL if needed
+  // Note: Orthanc DICOMweb root is usually without '/rs' suffix if using the standard plugin path, 
+  // but if we want strictly QIDO-RS, we usually append nothing as the proxy handles it.
+  // However, most DICOMweb clients expect the root.
+  // Our proxy maps /api/dicom -> /dicom-web
+  // So /pacs (frontend) -> /api/dicom (backend) -> /dicom-web (orthanc)
+  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || '/pacs',
   
-  // Viewer URLs
-  viewers: {
-    ohif: import.meta.env.VITE_OHIF_VIEWER_URL || 'http://localhost:3000/viewer',
-    stone: import.meta.env.VITE_STONE_VIEWER_URL || 'http://localhost:8042/stone-webviewer/index.html',
-    basic: import.meta.env.VITE_BASIC_VIEWER_URL || 'http://localhost:8042/app/explorer.html',
-  },
+  // OHIF Viewer URL
+  viewerUrl: import.meta.env.VITE_VIEWER_URL || import.meta.env.VITE_OHIF_VIEWER_URL || 'http://localhost:5001/viewer',
   
   // Application Settings
   app: {
@@ -21,14 +24,10 @@ export const config = {
 };
 
 // Build viewer URL with study ID
-export const getViewerUrl = (viewerType: 'ohif' | 'stone' | 'basic', studyId: string): string => {
+export const getViewerUrl = (viewerType: 'ohif', studyId: string): string => {
   switch (viewerType) {
     case 'ohif':
-      return `${config.viewers.ohif}?StudyInstanceUIDs=${studyId}`;
-    case 'stone':
-      return `${config.viewers.stone}?study=${studyId}`;
-    case 'basic':
-      return `${config.viewers.basic}#study?uuid=${studyId}`;
+      return `${config.viewerUrl}?StudyInstanceUIDs=${studyId}`;
     default:
       return '#';
   }

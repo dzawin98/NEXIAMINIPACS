@@ -1,6 +1,6 @@
 export interface Study {
   id: string;
-  orthancId: string;
+  engineId: string;
   patientName: string;
   patientId: string;
   accessionNumber: string;
@@ -16,6 +16,7 @@ export interface Study {
   patientBirthDate?: string;
   patientSex?: string;
   studyInstanceUID: string;
+  dicomStudyId?: string;
 }
 
 export interface Series {
@@ -32,7 +33,7 @@ export interface Series {
 export const mockStudies: Study[] = [
   {
     id: '1',
-    orthancId: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
+    engineId: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
     patientName: 'SMITH^JOHN^A',
     patientId: 'PAT001',
     accessionNumber: 'ACC2024001',
@@ -51,7 +52,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '2',
-    orthancId: 'b2c3d4e5-f6a7-8901-bcde-f12345678901',
+    engineId: 'b2c3d4e5-f6a7-8901-bcde-f12345678901',
     patientName: 'JOHNSON^MARY^E',
     patientId: 'PAT002',
     accessionNumber: 'ACC2024002',
@@ -70,7 +71,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '3',
-    orthancId: 'c3d4e5f6-a7b8-9012-cdef-123456789012',
+    engineId: 'c3d4e5f6-a7b8-9012-cdef-123456789012',
     patientName: 'WILLIAMS^ROBERT^J',
     patientId: 'PAT003',
     accessionNumber: 'ACC2024003',
@@ -89,7 +90,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '4',
-    orthancId: 'd4e5f6a7-b8c9-0123-defa-234567890123',
+    engineId: 'd4e5f6a7-b8c9-0123-defa-234567890123',
     patientName: 'BROWN^SARAH^L',
     patientId: 'PAT004',
     accessionNumber: 'ACC2024004',
@@ -108,7 +109,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '5',
-    orthancId: 'e5f6a7b8-c9d0-1234-efab-345678901234',
+    engineId: 'e5f6a7b8-c9d0-1234-efab-345678901234',
     patientName: 'DAVIS^MICHAEL^T',
     patientId: 'PAT005',
     accessionNumber: 'ACC2024005',
@@ -127,7 +128,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '6',
-    orthancId: 'f6a7b8c9-d0e1-2345-fabc-456789012345',
+    engineId: 'f6a7b8c9-d0e1-2345-fabc-456789012345',
     patientName: 'GARCIA^ELENA^M',
     patientId: 'PAT006',
     accessionNumber: 'ACC2024006',
@@ -146,7 +147,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '7',
-    orthancId: 'a7b8c9d0-e1f2-3456-abcd-567890123456',
+    engineId: 'a7b8c9d0-e1f2-3456-abcd-567890123456',
     patientName: 'MARTINEZ^CARLOS^R',
     patientId: 'PAT007',
     accessionNumber: 'ACC2024007',
@@ -165,7 +166,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '8',
-    orthancId: 'b8c9d0e1-f2a3-4567-bcde-678901234567',
+    engineId: 'b8c9d0e1-f2a3-4567-bcde-678901234567',
     patientName: 'ANDERSON^LISA^K',
     patientId: 'PAT008',
     accessionNumber: 'ACC2024008',
@@ -184,7 +185,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '9',
-    orthancId: 'c9d0e1f2-a3b4-5678-cdef-789012345678',
+    engineId: 'c9d0e1f2-a3b4-5678-cdef-789012345678',
     patientName: 'THOMAS^DAVID^W',
     patientId: 'PAT009',
     accessionNumber: 'ACC2024009',
@@ -203,7 +204,7 @@ export const mockStudies: Study[] = [
   },
   {
     id: '10',
-    orthancId: 'd0e1f2a3-b4c5-6789-defa-890123456789',
+    engineId: 'd0e1f2a3-b4c5-6789-defa-890123456789',
     patientName: 'JACKSON^AMANDA^R',
     patientId: 'PAT010',
     accessionNumber: 'ACC2024010',

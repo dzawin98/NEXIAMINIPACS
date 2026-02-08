@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogOut, RefreshCw, User, Activity } from 'lucide-react';
+import { LogOut, RefreshCw, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { config } from '@/lib/config';
 import { useAuth } from '@/contexts/AuthContext';
@@ -31,26 +31,13 @@ export const WorklistHeader: React.FC<WorklistHeaderProps> = ({
           {/* Logo & Title */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                <Activity className="h-5 w-5 text-primary-foreground" />
+              <div className="h-10 w-10 flex items-center justify-center">
+                <img src="/logo.png" alt="Logo" className="h-full w-full object-contain" />
               </div>
               <div>
                 <h1 className="text-xl font-semibold">{config.app.name}</h1>
                 <p className="text-sm text-muted-foreground">{config.app.institution}</p>
               </div>
-            </div>
-          </div>
-
-          {/* Center Stats */}
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <span className="text-muted-foreground">Studies:</span>
-              <span className="font-semibold">{studyCount}</span>
-            </div>
-            <div className="h-4 w-px bg-border" />
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-              <span className="text-muted-foreground">Connected to Orthanc</span>
             </div>
           </div>
 

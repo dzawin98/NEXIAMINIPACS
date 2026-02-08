@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+
+# Storage and Cache
+orthanc-storage/
+WebViewerCache/
+

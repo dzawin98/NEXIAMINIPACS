@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ohif",
+    "label": "View Image",
+    "urlTemplate": "http://localhost:3001/viewer?StudyInstanceUIDs={{studyInstanceUid}}",
+    "icon": "Eye",
+    "description": "Open Image in new tab",
+    "className": "text-primary hover:bg-primary/10",
+    "modalities": []
+  }
+]
